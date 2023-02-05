@@ -1,6 +1,6 @@
 Displays the current cryptocurrency prices in a command-line environment
 
-![image](https://user-images.githubusercontent.com/94128834/216846382-19661bc7-0709-4c62-ad37-75c8b035885f.png)
+![image](https://user-images.githubusercontent.com/94128834/216847026-c64482a0-0b02-4c69-8e11-0d26270fa1c8.png)
 
 Download or clone the repository
 ```
