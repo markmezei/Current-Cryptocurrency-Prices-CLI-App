@@ -4,7 +4,7 @@ Displays the current cryptocurrency prices in a command-line environment
 
 Download or clone the repository
 ```
-https://github.com/markmezei/Current-Cryptocurrency-Prices-CLI-App.git
+git clone https://github.com/markmezei/Current-Cryptocurrency-Prices-CLI-App.git
 ```
 
 Enter the repository
