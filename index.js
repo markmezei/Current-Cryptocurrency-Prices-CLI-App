@@ -8,7 +8,7 @@ async function fetchData(){
     const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
     const header = {headers: {'X-CMC_PRO_API_KEY': '540bb0e5-c206-45f9-b23f-c2634e202b63'}};
     try{
-        figlet("Cryptocurrency Prices", (error,data) => {
+        figlet("Current Cryptocurrency Prices", (error,data) => {
             (error) ? console.error(error) : console.info(chalk.green(data));
         })
         const response = await fetch(url,header);
