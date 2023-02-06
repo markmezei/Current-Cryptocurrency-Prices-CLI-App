@@ -27,19 +27,18 @@ function displayData(cryptocurrencies){
         let data = [];
         const header = new Array('Name', 'Symbol','Price', '1h %','24h %','7d %', 'Volume 24h', 'Volume change 24h');
         data.push(header);
-        cryptocurrencies.forEach((element, index) => {
-            if(index >= 20) {
-                return;
-            }
+        const currency = process.argv[2] === '-eur' ? '€' : '$';
+        cryptocurrencies.forEach((element,index) => {
+            if(index >= 20) return;
             data.push([
                 chalk.green(element.name), 
                 chalk.magenta(element.symbol),
-                chalk.red(`$${element.quote.USD.price.toFixed(3)}`),
-                chalk.blueBright(`$${element.quote.USD.percent_change_1h.toFixed(3)}`),
-                chalk.blueBright(`$${element.quote.USD.percent_change_24h.toFixed(3)}`),
-                chalk.blueBright(`$${element.quote.USD.percent_change_7d.toFixed(3)}`),
-                chalk.yellow(`$${element.quote.USD.volume_24h.toFixed(3)}`),
-                chalk.yellow(`$${element.quote.USD.volume_change_24h.toFixed(3)}`),
+                chalk.red(`${currency}${(currency === '€' ? toEuro(element.quote.USD.price) : element.quote.USD.price).toFixed(3)}`),
+                chalk.blueBright(`${currency}${(currency === '€' ? toEuro(element.quote.USD.percent_change_1h) : element.quote.USD.percent_change_1h).toFixed(3)}`),
+                chalk.blueBright(`${currency}${(currency === '€' ? toEuro(element.quote.USD.percent_change_24h) : element.quote.USD.percent_change_24h).toFixed(3)}`),
+                chalk.blueBright(`${currency}${(currency === '€' ? toEuro(element.quote.USD.percent_change_7d) : element.quote.USD.percent_change_7d).toFixed(3)}`),
+                chalk.yellow(`${currency}${(currency === '€' ? toEuro(element.quote.USD.volume_24h) : element.quote.USD.volume_24h).toFixed(3)}`),
+                chalk.yellow(`${currency}${(currency === '€' ? toEuro(element.quote.USD.volume_change_24h) : element.quote.USD.volume_change_24h).toFixed(3)}`),
             ]);
         });
         const config = {
@@ -51,4 +50,10 @@ function displayData(cryptocurrencies){
         console.log(table(data, config));
     }
     display();
+}
+
+
+const toEuro = (dollar) => {
+    const euro = dollar * 0.93;
+    return euro;
 }
