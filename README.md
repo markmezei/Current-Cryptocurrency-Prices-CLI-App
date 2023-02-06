@@ -7,7 +7,7 @@ Download or clone the repository
 git clone https://github.com/markmezei/Current-Cryptocurrency-Prices-CLI-App.git
 ```
 
-Enter the repository
+Enter the repository and run this command
 ```
 npm install
 ```
