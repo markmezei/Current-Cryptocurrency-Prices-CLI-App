@@ -16,3 +16,9 @@ Run the code
 ```
 node index.js
 ```
+
+
+Display the prices in euro
+```
+node index.js -eur
+```
